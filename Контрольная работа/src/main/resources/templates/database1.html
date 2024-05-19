@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+
+
+<body>
+
+
+    <p>Displaying table contents: </p>
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Token</th>
+            <th>Username</th>
+            <th>positionOnStarship</th>
+            <th>age</th>
+            <th>sex</th>
+            <th>balance</th>
+            <th>background</th>
+            <th>publicBackground</th>
+            <th>photo</th>
+            <th>securityBackground</th>
+            <th>medicalBackground</th>
+            <th>psychologyBackground</th>
+            <th>lastAvailable</th>
+            <th>userSettings</th>
+        </tr>
+
+        <tr th:each="users : ${allSections}">
+            <td th:text="${users.userId}"></td>
+            <td th:text="${users.authToken}"></td>
+            <td th:text="${users.userName}"></td>
+            <td th:text="${users.positionOnStarship}"></td>
+            <td th:text="${users.age}"></td>
+            <td th:text="${users.sex}"></td>
+            <td th:text="${users.balance}"></td>
+            <td th:text="${users.background}"></td>
+            <td th:text="${users.publicBackground}"></td>
+            <td th:text="${users.photo}"></td>
+            <td th:text="${users.securityBackground}"></td>
+            <td th:text="${users.medicalBackground}"></td>
+            <td th:text="${users.psychologyBackground}"></td>
+            <td th:text="${users.lastAvailable}"></td>
+            <td th:text="${users.userSettings}"></td>
+            <td>
+                <a th:href="@{database1/delete(id=${users.userId})}" class="btn btn-sm btn-danger">Delete</a>
+                <a th:href="@{database1/edit(id=${users.userId})}" class="btn btn-sm btn-primary">Edit</a>
+
+        </tr>
+        <td>
+            <a th:href="@{database1/add}" class="btn btn-sm btn-danger">Add</a>
+        </td>
+    </table>
+
+</body>
+</html>
